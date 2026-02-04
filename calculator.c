@@ -1,5 +1,95 @@
 #include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
 
+void divide_fun(void)
+{
+    char num[100];
+    float divide;
+    int i = 0;
+    printf("Enter '=' to end input\n");
+    while(1)
+    {
+        printf("Enter number %d: ", i+1);
+        scanf("%s", num);
+        if(strcmp( num, "=") == 0)
+            break;
+        else
+        {
+            if(i == 0)
+                divide = strtof( num, NULL);
+            else
+                divide /= strtof( num, NULL);
+        }    
+        i++;        
+    }
+
+    printf("Division = %.2f\n", divide);   
+          
+}
+
+void multi_fun(void)
+{
+    char num[100];
+    float multi=1.0;
+    int i = 0;
+    printf("Enter '=' to end input\n");
+    while(1)
+    {
+        printf("Enter number %d: ", i+1);
+        scanf("%s", num);
+        if(strcmp( num, "=") == 0)
+            break;
+        else
+            multi *= strtof( num, NULL);
+        i++;            
+    }
+                    
+    printf("Multiplication = %.2f\n", multi);
+}
+
+void sub_fun(void)
+{
+    char num[100];  
+    float sub;
+    int i = 0;
+    printf("Enter '=' to end input\n");
+    while(1)
+    {
+        printf("Enter number %d: ", i+1);
+        scanf("%s", num);
+        if(strcmp( num, "=") == 0)
+            break;
+                                
+        if(i == 0)
+            sub = strtof( num, NULL);
+        else
+            sub -= strtof( num, NULL);
+        i++;    
+    }
+                    
+    printf("Subtraction = %.2f\n", sub);
+}
+
+void add_fun(void)
+{
+    char num[100];
+    float sum = 0.0;        
+    int i = 0;
+    printf("Enter '=' to end input\n");
+    while(1)
+    {
+        printf("Enter number %d: ", i+1);
+        scanf("%s", num);
+        if(strcmp( num, "=") == 0)
+            break;
+        else
+            sum += strtof( num, NULL);
+        i++;    
+    }
+                    
+    printf("Sum = %.2f\n", sum);
+}
 void basic_arithmetic_operations(void)
 {
     // Code for Basic Arithmetic Operations
@@ -18,46 +108,15 @@ void basic_arithmetic_operations(void)
         case 1:
         {
             //Addition
-            float num, sum=0.0;
-            int i = 0;
-            printf("Enter '0' to end input\n");
-            while(1)
-            {
-                printf("Enter number %d: ", i+1);
-                scanf("%f", &num);
-                if(num == 0)
-                    break;
-                else
-                    sum += num;
-                i++;    
-            }
-                    
-            printf("Sum = %.2f\n", sum);
+            add_fun();
             break;
         }
                     
                     
         case 2: 
         {
-            //Subtraction   
-            float num, sub;
-            int i = 0;
-            printf("Enter '0' to end input\n");
-            while(1)
-            {
-                printf("Enter number %d: ", i+1);
-                scanf("%f", &num);
-                if(num == 0)
-                    break;
-                            
-                if(i == 0)
-                    sub = num;
-                else
-                    sub -= num;
-                i++;    
-            }
-                    
-            printf("Subtraction = %.2f\n", sub);
+            //Subtraction 
+            sub_fun();
             break;
         }
                     
@@ -65,41 +124,14 @@ void basic_arithmetic_operations(void)
         case 3: 
         {
             //Multiplication
-            float num, multi=1.0;
-            int i = 0;
-            printf("Enter '0' to end input\n");
-            while(1)
-            {
-                printf("Enter number %d: ", i+1);
-                scanf("%f", &num);
-                if(num == 0)
-                    break;
-                else
-                    multi *= num;
-                i++;    
-            }
-                    
-            printf("Multiplication = %.2f\n", multi);
+            multi_fun();
             break;
         }
 
         case 4: 
         {
             //Division
-            float dividend, divisor, quotient;
-            printf("Enter dividend: ");
-            scanf("%f", &dividend);
-            printf("Enter divisor: ");
-            scanf("%f", &divisor);
-            if(divisor != 0)
-            {
-                quotient = dividend / divisor;
-                printf("Quotient = %.2f\n", quotient);
-            }
-            else
-            {
-                printf("Error: Division by zero is not allowed.\n");
-            }                    
+            divide_fun();                       
             break;
         }
         default: printf("Invalid operation choice. Please try again.\n");
