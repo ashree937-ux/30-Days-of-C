@@ -19,7 +19,7 @@ void clear_history(void);
 float divide_fun(void)
 {
     char num[100];
-    float divide;
+    float divide = 0.0;
     int i = 0;
     printf("Press enter to move between numbers.\n");
     printf("Enter '=' to end input\n");
@@ -72,7 +72,7 @@ float multi_fun(void)
 float sub_fun(void)
 {
     char num[100];  
-    float sub;
+    float sub = 0.0;
     int i = 0;
     printf("Press enter to move between numbers.\n");
     printf("Enter '=' to end input\n");
@@ -300,5 +300,5 @@ int main()
         }
     }
     while(choice != 5);
-    return 0;
+    return 0; 
 }
