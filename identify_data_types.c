@@ -69,7 +69,18 @@ int main()
 
             else if(entry[j] == '.')
             {
+                dot_count++;
+                if(dot_count > 1)
+                {
+                    printf("Invalid input.\n");
+                    break;
+                }
                 
+                if(j == 0 || j == len-1)
+                {
+                    printf("Invalid input.\n");
+                    break;
+                }
 
                 if((entry[j-1] >= '0' && entry[j-1] <= '9') && (entry[j+1] >= '0' && entry[j+1] <= '9'))
                 {
